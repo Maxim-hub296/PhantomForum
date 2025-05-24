@@ -1,0 +1,41 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}Цели{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Основной фон страницы */
+  body {
+    background-color: #1a0000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="py-5 container">
+  <h1 class="text-center mb-5" style="color: #DC143C;">Все запросы</h1>
+  <div class="row g-4">
+    {% for request in requests %}
+    <div class="col-md-4">
+      <div class="card bg-dark text-light shadow-sm border-3 h-100" style="border-color: #8B0000;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title mb-3" style="color: #f5c6cb;">{{ request.target_name }}</h5>
+          <p class="card-text flex-grow-1">
+            <strong style="color: #e0a899;">Страна:</strong> {{ request.target_country }}<br>
+            <strong style="color: #e0a899;">Город:</strong> {{ request.target_city }}
+          </p>
+          <a href="{% url 'forum:request' request.id %}" class="btn btn-danger mt-auto">Подробнее</a>
+        </div>
+        <div class="card-footer bg-transparent border-top-0 text-end" style="color: #f5c6cb;">
+          Грех: {{ request.target_sin }}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+      <p class="text-center text-light">Нет ни одного запроса.</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
