@@ -1,0 +1,42 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}PhantomForum{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Устанавливаем фон всей страницы */
+  body {
+    background-color: #1a0000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Фон страницы в тёмно-красных тонах -->
+<div class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card bg-dark text-light shadow-sm border-3" style="border-color: #8B0000;">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4" style="color: #DC143C;">О нас</h1>
+            <p class="lead" style="color: #f5c6cb;">Мы — сообщество тех, кто осмеливается взглянуть в зеркало своей души и изменить мир вокруг.</p>
+            <hr class="border-light">
+            <p style="color: #e0a899;">Вдохновлённые духом «Призрачных похитителей», мы объединились, чтобы обмениваться идеями, раскрывать скрытые истины и разрушать преграды, мешающие прогрессу.</p>
+            <p style="color: #e0a899;">Здесь вы найдёте:</p>
+            <ul>
+              <li style="color: #f5c6cb;">Пространство для обсуждений, свободное от условностей.</li>
+              <li style="color: #f5c6cb;">Возможность высказывать свои мысли без страха быть понятым неправильно.</li>
+              <li style="color: #f5c6cb;">Союзников в деле изменения судьбы.</li>
+            </ul>
+            <blockquote class="blockquote mt-4 border-start ps-3" style="border-color: #DC143C;">
+              <p class="mb-0" style="color: #ffc9cb;">«Истинная сила рождается там, где кипят сердца тех, кто не боится бросить вызов судьбе.»</p>
+
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

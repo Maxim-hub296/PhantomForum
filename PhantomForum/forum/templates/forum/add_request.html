@@ -1,0 +1,100 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}Новая цель!{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Фон всей страницы */
+  body {
+    background-color: #1a0000;
+  }
+  /* Стили для полей ввода */
+  .form-label {
+    color: #f5c6cb;
+  }
+  .form-control {
+    color: #f5c6cb;
+    background-color: transparent;
+    border: 1px solid #6c757d;
+    caret-color: #f5c6cb;
+  }
+  .form-control::placeholder {
+    color: #e0a899;
+  }
+  .form-control:focus {
+    background-color: transparent;
+    color: #f5c6cb;
+    border-color: #DC143C;
+    box-shadow: none;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card bg-dark text-light shadow-sm border-3" style="border-color: #8B0000;">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4" style="color: #DC143C;">Добавить запрос</h2>
+            <form action="" method="post">
+              {% csrf_token %}
+
+              {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                  {{ form.non_field_errors }}
+                </div>
+              {% endif %}
+
+              <div class="mb-3">
+                <label for="id_target_country" class="form-label">Страна назначения</label>
+                <input type="text" name="target_country" id="id_target_country"
+                       class="form-control" placeholder="Введите страну"
+                       value="{{ form.target_country.value|default_if_none:'' }}">
+                {% if form.target_country.errors %}
+                  <div class="text-danger small">{{ form.target_country.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_target_city" class="form-label">Город назначения</label>
+                <input type="text" name="target_city" id="id_target_city"
+                       class="form-control" placeholder="Введите город"
+                       value="{{ form.target_city.value|default_if_none:'' }}">
+                {% if form.target_city.errors %}
+                  <div class="text-danger small">{{ form.target_city.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_target_name" class="form-label">Имя цели</label>
+                <input type="text" name="target_name" id="id_target_name"
+                       class="form-control" placeholder="Введите имя"
+                       value="{{ form.target_name.value|default_if_none:'' }}">
+                {% if form.target_name.errors %}
+                  <div class="text-danger small">{{ form.target_name.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="mb-3">
+                <label for="id_target_sin" class="form-label">Грех цели</label>
+                <input type="text" name="target_sin" id="id_target_sin"
+                       class="form-control" placeholder="Введите грех"
+                       value="{{ form.target_sin.value|default_if_none:'' }}">
+                {% if form.target_sin.errors %}
+                  <div class="text-danger small">{{ form.target_sin.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-danger">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
