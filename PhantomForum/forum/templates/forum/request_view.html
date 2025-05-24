@@ -1,9 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-</body>
-</html>
+{% extends 'forum/base.html' %}
+
+{% block title %}Цель {{ object.target_name }} {% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Фон всей страницы */
+  body {
+    background-color: #1a0000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="py-5 container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card bg-dark text-light shadow-sm border-3" style="border-color: #8B0000;">
+        <div class="card-body">
+          <h2 class="card-title mb-4 text-center" style="color: #DC143C;">Запрос: {{ object.target_name }}</h2>
+          <dl class="row">
+            <dt class="col-sm-4" style="color: #e0a899;">Имя цели</dt>
+            <dd class="col-sm-8" style="color: #f5c6cb;">{{ object.target_name }}</dd>
+
+            <dt class="col-sm-4" style="color: #e0a899;">Страна</dt>
+            <dd class="col-sm-8" style="color: #f5c6cb;">{{ object.target_country }}</dd>
+
+            <dt class="col-sm-4" style="color: #e0a899;">Город</dt>
+            <dd class="col-sm-8" style="color: #f5c6cb;">{{ object.target_city }}</dd>
+
+            <dt class="col-sm-4" style="color: #e0a899;">Грех</dt>
+            <dd class="col-sm-8" style="color: #f5c6cb;">{{ object.target_sin }}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -8,8 +8,9 @@ from django.urls import reverse_lazy
 class AboutView(TemplateView):
     template_name = "forum/about.html"
 
-# class RequestView(DetailView):
-#     template_name = "forum/request_view.html"
+class RequestView(DetailView):
+    model = Request
+    template_name = "forum/request_view.html"
 
 class AddRequestView(CreateView):
     template_name = "forum/add_request.html"
@@ -17,3 +18,5 @@ class AddRequestView(CreateView):
     form_class = AddRequest
 
     success_url = '/'
+
+
