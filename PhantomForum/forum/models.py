@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 
 
 # Create your models here.
@@ -11,4 +10,12 @@ class Request(models.Model):
 
     def __str__(self):
         return self.target_sin
+
+
+class Commentary(models.Model):
+    author = models.CharField(max_length=100)
+    text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.author
 

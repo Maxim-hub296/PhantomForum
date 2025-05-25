@@ -1,0 +1,36 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}Комментарии{% endblock %}
+
+{% block extra_head %}
+<style>
+  body {
+    background-color: #1a0000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="py-5 container">
+  <h1 class="text-center mb-5" style="color: #DC143C;">Комментарии пользователей</h1>
+  <div class="text-center mb-5">
+    <a href="/add_commentary" class="btn btn-danger">Оставить комментарий</a>
+  </div>
+  <div class="row g-4">
+    {% for comment in commentaries %}
+    <div class="col-md-6">
+      <div class="card bg-dark text-light shadow-sm border-3" style="border-color: #8B0000;">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #f5c6cb;">{{ comment.author }}</h5>
+          <p class="card-text" style="color: #e0a899;">{{ comment.text }}</p>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+      <p class="text-center text-light">Пока что никто не оставил комментарий.</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}Оставить комментарий{% endblock %}
+
+{% block extra_head %}
+<style>
+  body {
+    background-color: #1a0000;
+  }
+  .form-control {
+    background-color: #2c0a0a;
+    color: #fff;
+    border-color: #8B0000;
+  }
+  .form-control:focus {
+    background-color: #2c0a0a;
+    color: #fff;
+    border-color: #DC143C;
+    box-shadow: none;
+  }
+  label {
+    color: #e0a899;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-4" style="color: #DC143C;">Оставить комментарий</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_author" class="form-label">Ваше имя</label>
+          {{ form.author }}
+        </div>
+        <div class="mb-3">
+          <label for="id_text" class="form-label">Комментарий</label>
+          {{ form.text }}
+        </div>
+        <button type="submit" class="btn btn-danger">Отправить</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
